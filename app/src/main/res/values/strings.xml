@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Pokemon</string>
+    <string name="ipaccess">https://pokeapi.co/api/v2/</string>
+    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+    <string name="facebook_application_id" translatable="false">pokefbtest</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fbpokefbtest</string>
 </resources>
