@@ -4,4 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity"
+    android:background="@drawable/fondologin">
+
+    <Button
+        android:id="@+id/iniciarsesion1"
+        android:layout_width="220dp"
+        android:layout_height="51dp"
+        android:fontFamily="@font/gothamroundedbold"
+        android:text="Iniciar Sesion"
+        android:textColor="@color/primaryTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989"
+        android:background="@color/secondaryColor"/>
+
+    <Button
+        android:id="@+id/cerrarsesion"
+        android:layout_width="199dp"
+        android:layout_height="46dp"
+        android:fontFamily="@font/gothamroundedbold"
+        android:text="Cerrar Sesion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.559"
+        android:visibility="invisible"
+        android:background="@color/primaryColor"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

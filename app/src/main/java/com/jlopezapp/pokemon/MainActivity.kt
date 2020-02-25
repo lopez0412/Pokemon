@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     var mAuth: FirebaseAuth? = null
@@ -15,7 +16,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        createSingInIntent()
+        iniciarsesion1.setOnClickListener {
+            createSingInIntent()
+        }
+
+        cerrarsesion.setOnClickListener {
+            delete()
+        }
 
 
     }
@@ -32,6 +39,9 @@ class MainActivity : AppCompatActivity() {
             AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
+                .setTosAndPrivacyPolicyUrls(
+                    "https://example.com/terms.html",
+                    "https://example.com/privacy.html")
                 .build(),
             RC_SIGN_IN)
     }
@@ -45,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
                 val user = FirebaseAuth.getInstance().currentUser
+                var intent = Intent(this,Principal::class.java)
+                startActivity(intent)
                 // ...
             } else {
                 // Sign in failed. If response is null the user canceled the
@@ -53,6 +65,26 @@ class MainActivity : AppCompatActivity() {
                 // ...
             }
         }
+    }
+
+    private fun signOut() {
+        // [START auth_fui_signout]
+        AuthUI.getInstance()
+            .signOut(this)
+            .addOnCompleteListener {
+                // ...
+            }
+        // [END auth_fui_signout]
+    }
+
+    private fun delete() {
+        // [START auth_fui_delete]
+        AuthUI.getInstance()
+            .delete(this)
+            .addOnCompleteListener {
+                // ...
+            }
+        // [END auth_fui_delete]
     }
 
 
